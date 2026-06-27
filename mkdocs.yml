@@ -1,0 +1,23 @@
+site_name: Azure Cloud Security Posture Scanner
+site_description: Automated, serverless CSPM auditing for Microsoft Azure (CIS Benchmark)
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+  features:
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Deployment: deployment.md
+  - Checks (CIS mapping): checks.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables

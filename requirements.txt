@@ -1,0 +1,11 @@
+# ---- Azure Function runtime dependencies ----
+azure-functions
+azure-identity
+azure-mgmt-resource
+azure-mgmt-storage
+azure-mgmt-network
+azure-storage-blob
+
+# ---- Documentation site (optional, for `mkdocs serve`) ----
+mkdocs
+mkdocs-material

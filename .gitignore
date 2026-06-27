@@ -1,0 +1,90 @@
+# =============================================================
+#  .gitignore for Azure Cloud Security Scanner
+#  (Terraform + Azure Functions + Python)
+#  Purpose: keep subscription IDs, secrets, and state OUT of git
+# =============================================================
+
+# ----- Terraform -----
+# State files: contain subscription/tenant IDs, resource IDs,
+# and sometimes secrets in PLAINTEXT. Never commit.
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Local .terraform working dir, plan output, crash logs
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+crash.log
+crash.*.log
+
+# Variable files (often hold subscription_id, client_id, secrets).
+# Commit a sanitized terraform.tfvars.example instead.
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+!*.tfvars.json.example
+
+# Terraform CLI config (may contain credentials)
+.terraformrc
+terraform.rc
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ----- Azure Functions -----
+# Local settings hold connection strings and app keys
+local.settings.json
+.python_packages/
+bin/
+obj/
+appsettings.json
+
+# Azure CLI / deployment artifacts
+.azure/
+*.PublishSettings
+*.publishsettings
+
+# ----- Secrets / credentials (generic) -----
+.env
+.env.*
+*.env
+secrets/
+secrets.*
+credentials
+credentials.json
+*.pem
+*.key
+*.pfx
+*.p12
+*.cer
+*.crt
+sas-token*
+connection-string*
+
+# ----- Scanner output reports -----
+# Your reports embed full resource paths like
+# /subscriptions/<your-sub-id>/... — sanitize or ignore them.
+reports/
+output/
+scan-results/
+*.report.json
+*.report.md
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.Python
+*.log
+
+# ----- IDE / OS -----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
